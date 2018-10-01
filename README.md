@@ -1,7 +1,7 @@
 Monopoly Blockchain Experience
 ==================================
 
-Use this application with the Oracle Autonomous Blockchain Cloud Service.
+Use this application with the Oracle Application Container Cloud Service and Oracle Autonomous Blockchain Cloud Service.
 
 Before you can run, access the invocation.js and query.js files to add the REST URL of your OABCS instance.
 
