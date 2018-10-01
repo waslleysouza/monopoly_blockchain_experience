@@ -1,0 +1,100 @@
+<%- contentFor('body') %>
+<div class="col-md-12 col-xs-12"><h2>Invocation</h2></div>
+
+<div role="main" class="col-md-3 col-xs-12">
+    <form role="form" action="/invocation" method="post">
+        <div class="form-group">
+            <label for="channel">Channel</label>
+            <input id="channel" name="channel" class="form-control" value="<%= channel %>"/></input>
+        </div>
+
+        <div class="form-group">
+            <label for="chaincode">Chaincode</label>
+            <input id="chaincode" name="chaincode" class="form-control" value="<%= chaincode %>"/>
+        </div>
+
+        <div class="form-group">
+            <label for="chaincodeVer">Chaincode Version</label>
+            <input id="chaincodeVer" name="chaincodeVer" class="form-control" value="<%= chaincodeVer %>"/>
+        </div>
+
+        <div class="form-group">
+            <label for="method">Method</label>
+            <select id="method" name="method" class="form-control">
+                <option value="transferProperty" <%= (method == 'transferProperty')?'selected=selected':'' %>>Transfer Property</option>
+                <option value="pay" <%= (method == 'pay')?'selected=selected':'' %>>Pay</option>
+                <option value="bankrupt" <%= (method == 'bankrupt')?'selected=selected':'' %>>Bankrupt</option>
+                <option value="initGame" <%= (method == 'initGame')?'selected=selected':'' %>>Init Game</option>
+            </select>
+        </div>
+        
+        <div class="form-group args transferProperty" style="display: none;">
+            <label for="property">Property</label>
+            <select id="property" name="property" class="form-control">
+                <option value="Ipanema" <%= (property == 'Ipanema')?'selected=selected':'' %>>Ipanema</option>
+                <option value="Leblon" <%= (property == 'Leblon')?'selected=selected':'' %>>Leblon</option>
+                <option value="Copacabana" <%= (property == 'Copacabana')?'selected=selected':'' %>>Copacabana</option>
+                <option value="Avenida Brigadeiro Faria Lima" <%= (property == 'Avenida Brigadeiro Faria Lima')?'selected=selected':'' %>>Avenida Brigadeiro Faria Lima</option>
+                <option value="Avenida Presidente Juscelino Kubistcheck" <%= (property == 'Avenida Presidente Juscelino Kubistcheck')?'selected=selected':'' %>>Avenida Presidente Juscelino Kubistcheck</option>
+                <option value="Avenida Engenheiro Luis Carlos Berrini" <%= (property == 'Avenida Engenheiro Luis Carlos Berrini')?'selected=selected':'' %>>Avenida Engenheiro Luis Carlos Berrini</option>
+                <option value="Avenida Atlantica" <%= (property == 'Avenida Atlantica')?'selected=selected':'' %>>Avenida Atlantica</option>
+                <option value="Avenida Vieira Souto" <%= (property == 'Avenida Vieira Souto')?'selected=selected':'' %>>Avenida Vieira Souto</option>
+                <option value="Niteroi" <%= (property == 'Niteroi')?'selected=selected':'' %>>Niteroi</option>
+                <option value="Avenida Paulista" <%= (property == 'Avenida Paulista')?'selected=selected':'' %>>Avenida Paulista</option>
+                <option value="Rua 25 de Marco" <%= (property == 'Rua 25 de Marco')?'selected=selected':'' %>>Rua 25 de Marco</option>
+                <option value="Avenida Sao Joao" <%= (property == 'Avenida Sao Joao')?'selected=selected':'' %>>Avenida Sao Joao</option>
+                <option value="Praca da Se" <%= (property == 'Praca da Se')?'selected=selected':'' %>>Praca da Se</option>
+                <option value="Avenida Sumare" <%= (property == 'Avenida Sumare')?'selected=selected':'' %>>Avenida Sumare</option>
+                <option value="Avenida Cidade Jardim" <%= (property == 'Avenida Cidade Jardim')?'selected=selected':'' %>>Avenida Cidade Jardim</option>
+                <option value="Pacaembu" <%= (property == 'Pacaembu')?'selected=selected':'' %>>Pacaembu</option>
+                <option value="Ibirapuera" <%= (property == 'Ibirapuera')?'selected=selected':'' %>>Ibirapuera</option>
+                <option value="Barra da Tijuca" <%= (property == 'Barra da Tijuca')?'selected=selected':'' %>>Barra da Tijuca</option>
+                <option value="Jardim Botanico" <%= (property == 'Jardim Botanico')?'selected=selected':'' %>>Jardim Botanico</option>
+                <option value="Lagoa Rodrigo de Freitas" <%= (property == 'Lagoa Rodrigo de Freitas')?'selected=selected':'' %>>Lagoa Rodrigo de Freitas</option>
+                <option value="Avenida Morumbi" <%= (property == 'Avenida Morumbi')?'selected=selected':'' %>>Avenida Morumbi</option>
+                <option value="Rua Oscar Freire" <%= (property == 'Rua Oscar Freire')?'selected=selected':'' %>>Rua Oscar Freire</option>
+            </select>
+        </div>
+
+        <div class="form-group args transferProperty pay bankrupt" style="display: none;">
+            <label for="player">Player (From)</label>
+            <select id="player" name="player" class="form-control">
+                <option value="Player 1" <%= (player == 'Player 1')?'selected=selected':'' %>>Player 1</option>
+                <option value="Player 2" <%= (player == 'Player 2')?'selected=selected':'' %>>Player 2</option>
+                <option value="Player 3" <%= (player == 'Player 3')?'selected=selected':'' %>>Player 3</option>
+                <option value="Player 4" <%= (player == 'Player 4')?'selected=selected':'' %>>Player 4</option>
+                <option value="Player 5" <%= (player == 'Player 5')?'selected=selected':'' %>>Player 5</option>
+                <option value="Player 6" <%= (player == 'Player 6')?'selected=selected':'' %>>Player 6</option>
+                <option value="Bank" <%= (player == 'Bank')?'selected=selected':'' %>>Bank</option>
+            </select>
+        </div>
+        
+        <div class="form-group args transferProperty pay" style="display: none;">
+            <label for="player2">Player (To)</label>
+            <select id="player2" name="player2" class="form-control">
+                <option value="Player 1" <%= (player2 == 'Player 1')?'selected=selected':'' %>>Player 1</option>
+                <option value="Player 2" <%= (player2 == 'Player 2')?'selected=selected':'' %>>Player 2</option>
+                <option value="Player 3" <%= (player2 == 'Player 3')?'selected=selected':'' %>>Player 3</option>
+                <option value="Player 4" <%= (player2 == 'Player 4')?'selected=selected':'' %>>Player 4</option>
+                <option value="Player 5" <%= (player2 == 'Player 5')?'selected=selected':'' %>>Player 5</option>
+                <option value="Player 6" <%= (player2 == 'Player 6')?'selected=selected':'' %>>Player 6</option>
+                <option value="Bank" <%= (player2 == 'Bank')?'selected=selected':'' %>>Bank</option>
+            </select>
+        </div>
+
+        <div class="form-group args transferProperty pay" style="display: none;">
+            <label for="value">Value</label>
+            <input id="value" name="value" class="form-control" value="<%= value %>"/>
+        </div>
+
+        <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary btn-lg">Send</button>
+        </div>
+    </form>
+</div>
+
+<div role="complementary" class="col-md-9 col-xs-12">
+    <% if (message != null) { %>
+        <pre class="alert"><%= message %></pre>
+    <% } %>
+</div>
