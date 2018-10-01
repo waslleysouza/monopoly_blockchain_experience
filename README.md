@@ -1,18 +1,17 @@
 Monopoly Blockchain Experience
 ==================================
 
-Use this application with Oracle Autonomous Blockchain Cloud Service.
+Use this application with the Oracle Autonomous Blockchain Cloud Service.
 
-Before you can execute, go to invocation.js and query.js files to add the REST URL of your OBCS instance.
+Before you can run, access the invocation.js and query.js files to add the REST URL of your OABCS instance.
 
-To run, execute:
-
+To run the application:
 1) npm install
-2) zip all files inside monopoly folder
-3) Deploy to Oracle Application Container Cloud Service as NodeJS application.
-4) Deploy the chaincode/monopoly.go chaincode in Oracle Autonomous Blockchain Cloud Service.
+2) Zip all files that are inside the monopoly folder
+3) Deploy the zip file in the Oracle Application Container Cloud Service as NodeJS application.
+4) Deploy the chaincode/monopoly.go chaincode in the Oracle Autonomous Blockchain Cloud Service.
 5) Enjoy!
 
 
-To learn more about how to deploy a NodeJS application, please read this blog post:
-http://waslleysouza.com.br/en/2018/08/sending-data-from-python-app-to-oracle-iot-cloud-service
+To learn more about deploying a NodeJS application, read this blog post:
+http://waslleysouza.com.br/en/2017/06/getting-started-oracle-application-container-cloud-service/
