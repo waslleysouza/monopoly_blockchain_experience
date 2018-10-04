@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-var channel = "monopolyorderer";
-var chaincode = "monopoly";
-var chaincodeVer = "v1";
+var channel = process.env.CHANNEL;
+var chaincode = process.env.CHAINCODE;
+var chaincodeVer = process.env.CHAINCODE_VERSION;
 var method = null;
 var player = null;
 var property = null;
@@ -43,7 +43,7 @@ router.post('/', function (req, res, next) {
     
     // Configure the request
     var options = {
-        url: "http://localhost:7000/bcsgw/rest/v1/transaction/query",
+        url: process.env.URL_QUERY,
         method: "POST",
         json: json,
         proxy: ""
