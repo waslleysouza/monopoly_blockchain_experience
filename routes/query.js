@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
+var auth = "Basic " + new Buffer(process.env.USERNAME + ":" + process.env.PASSWORD).toString("base64");
 var channel = process.env.CHANNEL;
 var chaincode = process.env.CHAINCODE;
 var chaincodeVer = process.env.CHAINCODE_VERSION;
@@ -44,6 +45,9 @@ router.post('/', function (req, res, next) {
     // Configure the request
     var options = {
         url: process.env.URL_QUERY,
+        headers : {
+            "Authorization" : auth
+        },
         method: "POST",
         json: json,
         proxy: ""
@@ -59,9 +63,15 @@ router.post('/', function (req, res, next) {
 
         var transactions = [];
         if (body.returnCode == "Success") {
-            var result = JSON.parse(body.result);
+            var result = JSON.parse(body.result.payload);
 
             if (result instanceof Array) {
+                if(req.body.method == "queryWalletHistory" || req.body.method == "queryPropertyHistory") {
+                    for (var j = 0; j < result.length; j++) {
+                        result[j]["value"] = JSON.stringify(result[j]["value"])
+                    }
+                }
+
                 transactions = result;
             } else {
                 transactions.push(result);

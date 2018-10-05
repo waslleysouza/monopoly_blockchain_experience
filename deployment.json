@@ -2,10 +2,12 @@
     "memory": "1G",
     "instances": "1",  
     "environment": {
-        "CHANNEL": "monopolyorderer",
+        "CHANNEL": "founderboard1",
         "CHAINCODE": "monopoly",
         "CHAINCODE_VERSION": "v1",
-		"URL_QUERY": "http://localhost:7000/bcsgw/rest/v1/transaction/query",
-		"URL_INVOCATION": "http://localhost:7000/bcsgw/rest/v1/transaction/invocation"
+		"URL_QUERY": "https://xxxxx.blockchain.ocp.oraclecloud.com/restproxy1/bcsgw/rest/v1/transaction/query",
+        "URL_INVOCATION": "https://xxxxxx.blockchain.ocp.oraclecloud.com/restproxy1/bcsgw/rest/v1/transaction/invocation",
+        "USERNAME": "xxxxxx",
+        "PASSWORD": "xxxxxx"
     }
 }

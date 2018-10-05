@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
+var auth = "Basic " + new Buffer(process.env.USERNAME + ":" + process.env.PASSWORD).toString("base64");
 var channel = process.env.CHANNEL;
 var chaincode = process.env.CHAINCODE;
 var chaincodeVer = process.env.CHAINCODE_VERSION;
@@ -50,6 +51,9 @@ router.post('/', function (req, res, next) {
     // Configure the request
     var options = {
         url: process.env.URL_INVOCATION,
+        headers : {
+            "Authorization" : auth
+        },
         method: "POST",
         json: json,
         proxy: ""
@@ -65,7 +69,7 @@ router.post('/', function (req, res, next) {
 
         var message = "";
         if (body.returnCode == "Success") {
-            message = JSON.stringify(json, undefined, 2) + "\n\nTransaction added!\n\ntransactionID: " + body.transactionID;
+            message = JSON.stringify(json, undefined, 2) + "\n\nTransaction added!\n\ntransactionID: " + body.txid;
 
         } else {
             message = JSON.stringify(json, undefined, 2) + "\n\nError!\n\n" + body.info;
